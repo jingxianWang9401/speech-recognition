@@ -1,0 +1,15 @@
+×öÑµÁ·£º
+
+python F:/speaker_recognition_demo/wav_image/inception_mobilenet/retrain.py --image_dir F://speaker_recognition_demo//wav_image//dataset_enhance_cut_image --architecture inception_v3 --output_labels F:/speaker_recognition_demo/wav_image/inception_mobilenet/model_inception/output_labels.txt --output_graph F:/speaker_recognition_demo/wav_image/inception_mobilenet/model_inception/inception_output_graph.pb 
+
+×ö²âÊÔ£º  
+
+
+here is a bug 
+¡°The name ¡®import/input¡¯ refers to an Operation not in the graph.¡± 
+open label_image.py 
+change line78 ane line 79 to 
+input_layer = ¡°Mul¡± 
+output_layer = ¡°final_result¡±
+
+python D:/inception_mobilenet/label_image.py --graph=D:/inception_mobilenet/model_inception/inception_output_graph.pb --labels=D:/inception_mobilenet/model_inception/output_labels.txt --image=D:/face_data/songzhanghong/2.JPG
